@@ -9,7 +9,7 @@ public class SaveDataDebugTools
         if (Application.isPlaying)
         {
             var saveManager = GameObject.FindObjectOfType<SaveManager>();
-            saveManager.SaveData.SaveBinary("savedata01.dat");
+            SaveManager.SaveBinary("savedata01.dat", saveManager.SaveData);
         }
     }
 
@@ -19,7 +19,7 @@ public class SaveDataDebugTools
         if (Application.isPlaying)
         {
             var saveManager = GameObject.FindObjectOfType<SaveManager>();
-            saveManager.SaveData.LoadBinary("savedata01.dat");
+            SaveManager.LoadBinary("savedata01.dat", saveManager.SaveData);
         }
     }
 
@@ -29,7 +29,7 @@ public class SaveDataDebugTools
         if (Application.isPlaying)
         {
             var saveManager = GameObject.FindObjectOfType<SaveManager>();
-            saveManager.SaveData.SaveJson("savedata01.json");
+            SaveManager.SaveJson("savedata01.json", saveManager.SaveData);
         }
     }
 
@@ -39,7 +39,7 @@ public class SaveDataDebugTools
         if (Application.isPlaying)
         {
             var saveManager = GameObject.FindObjectOfType<SaveManager>();
-            saveManager.SaveData.LoadJson("savedata01.json");
+            SaveManager.LoadJson("savedata01.json", saveManager.SaveData);
         }
     }
 }
