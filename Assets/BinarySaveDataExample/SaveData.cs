@@ -8,6 +8,7 @@ public class SaveData : ScriptableObject
     public Vector3 PlayerPosition;
     public string[] EntityUuids;
     public Vector3[] EntityPositions;
+    public Random.State RandomState;
 
     void OnEnable()
     {

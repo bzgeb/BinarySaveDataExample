@@ -34,6 +34,7 @@ public class SaveManager : MonoBehaviour
                 writer.Write(position.y);
                 writer.Write(position.z);
             }
+            writer.Write(JsonUtility.ToJson(saveData.RandomState));
         }
 
         Debug.Log($"Saved Binary to {fileFullPath}");
@@ -55,6 +56,8 @@ public class SaveManager : MonoBehaviour
                 saveData.EntityUuids[i] = reader.ReadString();
                 saveData.EntityPositions[i] = new Vector3(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
             }
+
+            saveData.RandomState = JsonUtility.FromJson<Random.State>(reader.ReadString());
         }
 
         Debug.Log($"Loaded Binary from {fileFullPath}");

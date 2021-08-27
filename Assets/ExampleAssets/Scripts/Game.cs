@@ -10,6 +10,7 @@ public class Game : MonoBehaviour
 
         var entities = FindObjectsOfType<Entity>();
         saveData.SetEntities(entities);
+        saveData.RandomState = Random.state;
 
         if (useJson)
         {
@@ -47,5 +48,7 @@ public class Game : MonoBehaviour
             var entityDescriptor = EntityConfig.FindByUuid(entityUuid);
             Instantiate(entityDescriptor.Prefab, entityPosition, Quaternion.identity);
         }
+
+        Random.state = saveData.RandomState;
     }
 }
