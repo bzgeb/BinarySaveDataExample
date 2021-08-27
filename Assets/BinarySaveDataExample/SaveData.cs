@@ -1,11 +1,8 @@
 using UnityEngine;
 
-[CreateAssetMenu]
 public class SaveData : ScriptableObject
 {
     public int Version;
-    public int PlayerHealth;
-    public Vector3 PlayerPosition;
     public string[] EntityUuids;
     public Vector3[] EntityPositions;
     public Random.State RandomState;

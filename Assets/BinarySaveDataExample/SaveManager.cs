@@ -21,10 +21,6 @@ public class SaveManager : MonoBehaviour
         using (BinaryWriter writer = new BinaryWriter(File.Open(fileFullPath, FileMode.OpenOrCreate)))
         {
             writer.Write(saveData.Version);
-            writer.Write(saveData.PlayerHealth);
-            writer.Write(saveData.PlayerPosition.x);
-            writer.Write(saveData.PlayerPosition.y);
-            writer.Write(saveData.PlayerPosition.z);
             writer.Write(saveData.EntityUuids.Length);
             for (int i = 0; i < saveData.EntityUuids.Length; ++i)
             {
@@ -46,8 +42,6 @@ public class SaveManager : MonoBehaviour
         using (BinaryReader reader = new BinaryReader(File.Open(fileFullPath, FileMode.Open)))
         {
             saveData.Version = reader.ReadInt32();
-            saveData.PlayerHealth = reader.ReadInt32();
-            saveData.PlayerPosition = new Vector3(reader.ReadSingle(), reader.ReadSingle(), reader.ReadSingle());
             var entityCount = reader.ReadInt32();
             saveData.EntityUuids = new string[entityCount];
             saveData.EntityPositions = new Vector3[entityCount];
